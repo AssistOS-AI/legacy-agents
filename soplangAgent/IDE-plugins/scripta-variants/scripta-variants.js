@@ -9,7 +9,7 @@ import {
     setScriptaReaction as setReaction,
     SCRIPTA_REACTION_DISLIKE as REACTION_DISLIKE,
     SCRIPTA_REACTION_LIKE as REACTION_LIKE
-} from "../../../explorer/shared/document/scripta-state.js";
+} from "/explorer/shared/document/scripta-state.js";
 
 function decodeContext(element) {
     try {

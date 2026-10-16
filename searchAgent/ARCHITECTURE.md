@@ -6,7 +6,7 @@ SearchAgent is a Ploinky MCP-first agent for normalized web search. It hides pro
 
 GPTResearcher uses SearchAgent for web search through router-mediated agent-to-agent MCP calls. SearchAgent also exposes the bundled AgentServer's OpenAI-compatible `/v1/chat/completions` and `/v1/models` endpoints for clients that can only call OpenAI-compatible APIs. SearchAgent no longer exposes a custom HTTP service or classic `/services/search-agent/*` endpoints.
 
-`manifest.json` declares `startup: manual`. SearchAgent therefore remains dormant during a general workspace boot when it is outside the static agent's dependency graph. The AchillesCLI `launch-gpt-researcher` skill checks Marketplace status first and explicitly enables `proxies/searchAgent` in global mode only when research needs it; the launcher then starts GPTResearcher. Once explicitly activated and routed, the Ploinky watchdog maintains SearchAgent across crashes until a later general restart finds it stopped and removes its activation route.
+`manifest.json` declares `startup: manual`. SearchAgent therefore remains dormant during a general workspace boot when it is outside the static agent's dependency graph. The roboTeamAgent `launch-gpt-researcher` skill checks Marketplace status first and explicitly enables `legacy-agents/searchAgent` in global mode only when research needs it; the launcher then starts GPTResearcher. Once explicitly activated and routed, the Ploinky watchdog maintains SearchAgent across crashes until a later general restart finds it stopped and removes its activation route.
 
 ## Runtime
 
@@ -115,7 +115,7 @@ Everything else comes from SearXNG defaults.
 Provider credentials are stored in DPU secrets, not in SearchAgent settings or manifest profiles. SearchAgent reads them by calling `dpuAgent` through `/Agent/client/AgentMcpClient.mjs` and the internal `dpu_agent_secret_get` tool. The SearchAgent settings UI writes secrets with DPU user tools and grants `read` to:
 
 ```text
-agent:proxies/searchAgent
+agent:legacy-agents/searchAgent
 ```
 
 Secret keys are the provider environment names:

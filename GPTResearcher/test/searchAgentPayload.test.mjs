@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { unwrapToolPayload } from '../GPTResearcher/scripts/call-search-agent.mjs';
+import { unwrapToolPayload } from '../scripts/call-search-agent.mjs';
 
 test('GPTResearcher unwraps SearchAgent MCP stdout and ignores stderr logs', () => {
     const payload = unwrapToolPayload({

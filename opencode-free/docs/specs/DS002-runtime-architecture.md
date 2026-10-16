@@ -5,7 +5,7 @@ summary: Defines the OpenCode Free image, container layout, startup, readiness, 
 
 ## Introduction
 
-OpenCode Free is an optional Ploinky agent: `ploinky start explorer` does not enable it, and a workspace adds it with `ploinky enable agent proxies/opencode-free`. Its runtime combines a dedicated image that carries the pinned OpenCode CLI and a read-only CLI configuration, the shared [AgentServer](wiki.html#definition-agentserver), a background [service probe loop](wiki.html#definition-service-state), and one isolated CLI process per request.
+OpenCode Free is an optional Ploinky agent: `ploinky start explorer` does not enable it, and a workspace adds it with `ploinky enable agent legacy-agents/opencode-free`. Its runtime combines a dedicated image that carries the pinned OpenCode CLI and a read-only CLI configuration, the shared [AgentServer](wiki.html#definition-agentserver), a background [service probe loop](wiki.html#definition-service-state), and one isolated CLI process per request.
 
 ## Core Content
 

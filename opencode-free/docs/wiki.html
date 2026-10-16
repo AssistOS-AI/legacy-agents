@@ -16,7 +16,7 @@
     <p class="lead">This page is the canonical source for OpenCode Free terminology used by the HTML documentation and design specifications.</p>
     <dl>
       <dt id="definition-opencode-free">OpenCode Free</dt>
-      <dd>OpenCode Free is the Ploinky agent <code>proxies/opencode-free</code> that serves OpenCode's zero-cost models as plain-text OpenAI chat models for Soul Gateway. It owns request validation, prompt flattening, the per-request CLI run, confinement, the service state and the model allow-list. It does not implement OpenCode's protocol, offer tool calling or vision, or choose a model for the caller.</dd>
+      <dd>OpenCode Free is the Ploinky agent <code>legacy-agents/opencode-free</code> that serves OpenCode's zero-cost models as plain-text OpenAI chat models for Soul Gateway. It owns request validation, prompt flattening, the per-request CLI run, confinement, the service state and the model allow-list. It does not implement OpenCode's protocol, offer tool calling or vision, or choose a model for the caller.</dd>
       <dt id="definition-opencode-cli">OpenCode CLI</dt>
       <dd>The OpenCode CLI is OpenCode's official command-line client, version 1.18.31, installed unmodified in the agent image from the GitHub release tarball whose SHA-256 is pinned. It is the only program that contacts OpenCode's service. The agent runs it non-interactively with <code>run --pure --format json</code>, the prompt on standard input, and a throwaway home, data, state, cache, temporary and working directory per request.</dd>
       <dt id="definition-agentserver">AgentServer</dt>

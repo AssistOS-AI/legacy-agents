@@ -5,7 +5,7 @@ const DEFAULT_SETTINGS = Object.freeze({
 
 const LOG_PREFIX = '[SearchAgent Settings]';
 const SEARCH_AGENT_MCP_PATH = '/searchAgent/mcp';
-const SEARCH_AGENT_PRINCIPAL = 'agent:proxies/searchAgent';
+const SEARCH_AGENT_PRINCIPAL = 'agent:legacy-agents/searchAgent';
 const SECRET_KEYS = Object.freeze([
     'TAVILY_API_KEY',
     'BRAVE_API_KEY',

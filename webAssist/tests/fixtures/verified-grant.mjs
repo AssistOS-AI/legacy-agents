@@ -1,5 +1,5 @@
 import { randomUUID } from 'node:crypto';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 // Builds webAssist invocation grants the way production does: the sibling
 // Ploinky checkout's RouterRequestTokenService mints a router request and its
@@ -10,12 +10,15 @@ import { fileURLToPath } from 'node:url';
 const PLOINKY_ROOT = new URL('../../../../ploinky/', import.meta.url);
 // Ploinky's signer resolves AchillesAgentLib only from an explicit source.
 process.env.PLOINKY_AGENTLIB_DIR ||= fileURLToPath(new URL('node_modules/achillesAgentLib', PLOINKY_ROOT));
+// sessionAccess.mjs falls back to Explorer's mirrored shared/invocation-auth.mjs,
+// which does not exist next to this repository; use Ploinky's original instead.
+process.env.PLOINKY_INVOCATION_AUTH_MODULE ||= pathToFileURL(fileURLToPath(new URL('Agent/lib/invocation-auth.mjs', PLOINKY_ROOT))).href;
 const { RouterRequestTokenService } = await import(new URL('cli/server/security/tokens/RouterRequestTokenService.js', PLOINKY_ROOT).href);
 const { verifyRouterRequestFromHeaders } = await import(new URL('Agent/lib/invocationAuth.mjs', PLOINKY_ROOT).href);
 const { computeRchTool } = await import(new URL('Agent/lib/requestHash.mjs', PLOINKY_ROOT).href);
 
 export const PLOINKY_ROOT_PATH = fileURLToPath(PLOINKY_ROOT);
-export const WEBASSIST_ID = 'agent:AchillesIDE/webAssist';
+export const WEBASSIST_ID = 'agent:legacy-agents/webAssist';
 const WEBASSIST_SECRET = Buffer.alloc(32, 7);
 const minter = new RouterRequestTokenService({ resolveAgentSecret: () => WEBASSIST_SECRET });
 

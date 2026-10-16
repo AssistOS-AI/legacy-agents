@@ -3,7 +3,7 @@
 // assertion; Router verification is not exercised) -> Soul Gateway's real
 // Ploinky agent backend `execute` and `classifyError`.
 // Runs only when OPENCODE_FREE_PLOINKY_DIR names a Ploinky checkout; Soul is
-// read from SOUL_SRC or, by default, <proxies>/soul-gateway/src.
+// read from SOUL_SRC or, by default, <AssistOSExplorer>/soul-gateway/src.
 import assert from 'node:assert/strict';
 import { once } from 'node:events';
 import { createServer, request as httpRequest } from 'node:http';
@@ -14,7 +14,12 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { agentServerSetup, fillSlots, startAgentServer } from './helpers/agent-server.mjs';
 
 const SOUL_SRC = process.env.SOUL_SRC
-    || path.join(fileURLToPath(new URL('../..', import.meta.url)), 'soul-gateway', 'src');
+    || path.join(
+        process.env.EXPLORER_ROOT
+            || path.resolve(fileURLToPath(new URL('../..', import.meta.url)), '..', 'AssistOSExplorer'),
+        'soul-gateway',
+        'src',
+    );
 const ROUTE_KEY = 'routekey1';
 const SOUL_AGENT_ID = 'agent:test/soulgateway';
 const TEST_SECRET = '00112233445566778899aabbccddeeff00112233445566778899aabbccddeeff';
@@ -75,7 +80,7 @@ async function callSoul(baseUrl, supportsStreaming) {
             baseUrl,
             authStrategy: 'none',
             settings: {},
-            metadata: { routeKey: ROUTE_KEY, subjectId: 'agent:proxies/opencode-free', discoverySource: 'ploinky-agent-discovery' },
+            metadata: { routeKey: ROUTE_KEY, subjectId: 'agent:legacy-agents/opencode-free', discoverySource: 'ploinky-agent-discovery' },
         },
         env: { PLOINKY_AGENT_ID: SOUL_AGENT_ID, PLOINKY_AGENT_SECRET: TEST_SECRET },
         routerDescriptorEnv: descriptor.descriptorEnv,

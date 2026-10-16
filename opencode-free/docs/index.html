@@ -16,7 +16,7 @@
 
     <h2>Purpose and interfaces</h2>
     <p class="lead"><a href="wiki.html#definition-opencode-free">OpenCode Free</a> makes OpenCode's zero-cost models available as plain-text chat models behind the local Soul Gateway. OpenCode serves its free tier only to its own client, so the agent runs the real, unmodified <a href="wiki.html#definition-opencode-cli">OpenCode CLI</a> once per request inside its own container and returns the answer through the OpenAI-compatible <code>/v1/chat/completions</code> and <code>/v1/models</code> handlers of the bundled <a href="wiki.html#definition-agentserver">AgentServer</a>.</p>
-    <p>Soul Gateway finds the agent through the Router's generic OpenAI agent discovery and offers its models as <code>proxies/opencode-free/&lt;model&gt;</code>. Soul Gateway contains no OpenCode-specific code, the agent has no path back to Soul Gateway, and the models join no Soul Gateway tier unless an administrator adds them.</p>
+    <p>Soul Gateway finds the agent through the Router's generic OpenAI agent discovery and offers its models as <code>legacy-agents/opencode-free/&lt;model&gt;</code>. Soul Gateway contains no OpenCode-specific code, the agent has no path back to Soul Gateway, and the models join no Soul Gateway tier unless an administrator adds them.</p>
 
 <h2>Documentation Map</h2>
 <table class="documentation-map"><thead><tr><th scope="col">Repository</th><th scope="col">Documentation</th></tr></thead><tbody><tr><td><a href="../../index.html">Repository Home</a><span>Agent catalog and repository entry point.</span></td><td><a href="index.html">OpenCode Free Home</a><span>Agent purpose, interfaces, and operating boundaries.</span></td></tr>
