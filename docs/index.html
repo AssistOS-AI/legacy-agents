@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>legacy-agents Documentation</title>
+</head>
+<body>
+<main class="page">
+    <h1>legacy-agents</h1>
+    <p>Legacy Ploinky agents retained outside the default Explorer and proxies repositories. Each agent keeps its own documentation, and this page links to them. Agent identities are <code>agent:legacy-agents/&lt;agent&gt;</code>.</p>
+    <table>
+        <thead><tr><th scope="col">Agent</th><th scope="col">Documentation</th><th scope="col">Enabled by</th></tr></thead>
+        <tbody>
+        <tr><td><code>multimedia</code></td><td><a href="../multimedia/docs/index.html">Multimedia</a></td><td>Explorer manifest</td></tr>
+        <tr><td><code>soplangAgent</code></td><td><a href="../soplangAgent/docs/index.html">SOPLang</a></td><td>Explorer manifest</td></tr>
+        <tr><td><code>tasksAgent</code></td><td><a href="../tasksAgent/docs/index.html">Tasks</a></td><td>Explorer manifest</td></tr>
+        <tr><td><code>webAssist</code></td><td><a href="../webAssist/docs/index.html">WebAssist</a></td><td>Explorer manifest</td></tr>
+        <tr><td><code>GPTResearcher</code></td><td><a href="../GPTResearcher/docs/index.html">GPTResearcher</a></td><td>copilot-agents <code>research-agents</code></td></tr>
+        <tr><td><code>searchAgent</code></td><td><a href="../searchAgent/docs/index.html">SearchAgent</a></td><td>roboTeam <code>launch-gpt-researcher</code> skill</td></tr>
+        <tr><td><code>opencode-free</code></td><td><a href="../opencode-free/docs/index.html">OpenCode Free</a></td><td>Optional</td></tr>
+        </tbody>
+    </table>
+    <p>The shared module <code>documentation-breadcrumb.js</code> in this directory is imported by the per-agent <code>docs/partials-loader.js</code> files. Test commands and cross-repository rules are in <a href="../AGENTS.md">AGENTS.md</a>.</p>
+</main>
+</body>
+</html>

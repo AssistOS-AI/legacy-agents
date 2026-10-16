@@ -1,0 +1,14 @@
+/soplangAgent/.tasksQueue
+/webAssist/data/
+/webAssist/package.json
+/webAssist/package-lock.json
+/webAssist/node_modules/
+
+/.tmp/
+/.idea/
+/.ploinky/
+/logs/
+node_modules/
+.worktrees/
+worktrees/
+.DS_Store
